@@ -4,6 +4,7 @@ let newTodo = ref("");
 let allTasks = ref([]);
 
 function addNewTodo() {
+  if(!newTodo.value) return;
   allTasks.value.push({
     id: allTasks.value.length + 1,
     done: false,
@@ -33,7 +34,7 @@ function removeTask(task) {
   </form>
   <br />
 
-  <h1>Alle taken</h1>
+  <h1>Alle taken {{allTasks.length}}</h1>
   <button
     v-show="allTasks.length"
     @click="clearAllTasks"
@@ -41,6 +42,7 @@ function removeTask(task) {
   >
     Clear alle taken
   </button>
+
   <ul>
     <li
       :class="{ taskDone: task.done }"
