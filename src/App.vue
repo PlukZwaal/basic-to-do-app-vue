@@ -4,12 +4,12 @@ let newTodo = ref("");
 let allTasks = ref([]);
 
 function addNewTodo() {
-  console.log(allTasks.value);
   allTasks.value.push({
     id: allTasks.value.length + 1,
     done: false,
     task: newTodo.value,
   });
+  newTodo.value = "";
 }
 
 function clearAllTasks() {
